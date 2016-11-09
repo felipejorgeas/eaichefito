@@ -1,0 +1,335 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+}
+.text-dark-blue{
+    color: #1c3e58 !important;
+}
+.text-light-blue{
+    color: #4088da !important;
+}
+.box-shadow{
+    box-shadow: 0 2px 5px #CCCCCC;
+}
+#top{
+    width: 100%;
+    background-color: #25CE9E;
+    background-position: left;
+    height: 41px;
+    position: fixed;
+    top: 0;
+    border-top: 10px solid #FFFFFF;
+    border-bottom: 10px solid #FFFFFF;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    z-index: 2;
+}
+#top-center{
+    width: 100%;
+    max-width: 1280px;
+    background-image: url('../img/logo-topo@3x.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 500px;
+    background-color: #FFFFFF;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    margin-left: -640px;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+#top-center .ic-facebook img{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    max-width: 40px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+#top-center .ic-facebook:hover img{
+    background-color: #4088DA;
+}
+.content{
+    margin: 60px auto 0;
+    width: 100%;
+    max-width: 1280px;
+    font-size: x-large !important;
+    color: #1c3e58;
+    position: relative;
+}
+#banner {
+    margin-top: 80px;
+    border-bottom: 5px solid #1C3E58;
+}
+#banner .content:before{
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: -25px;
+    margin-left: -20px;
+    left: 50%;
+    border-top: 5px solid transparent;
+    border-right: 5px solid #1C3E58;
+    border-bottom: 5px solid #1C3E58;
+    border-left: 5px solid transparent;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #FFFFFF;
+}
+#banner p{
+    width: 300px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #25ce9e;
+    text-align: right;
+}
+#banner img{
+    width: 100%;
+    max-width: 1280px;
+}
+#problem {
+    text-align: center;
+    padding-bottom: 40px;
+    border-bottom: 5px solid #25ce9e;
+}
+#problem .content:before{
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: -65px;
+    margin-left: -20px;
+    left: 50%;
+    border-top: 5px solid transparent;
+    border-right: 5px solid #25ce9e;
+    border-bottom: 5px solid #25ce9e;
+    border-left: 5px solid transparent;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #FFFFFF;
+}
+#problem p{
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -60px 0 0 -150px;
+}
+#problem img{
+    width: calc(100% - 50px);
+    max-width: 600px;
+}
+#solution {
+    margin-top: 80px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+#solution .content:before{
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: -90px;
+    margin-left: -20px;
+    left: 50%;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #FFFFFF;
+    z-index: 1;
+}
+#solution p{
+    max-width: 500px;
+    margin: 50px auto 50px;
+    text-align: center;
+}
+#solution img{
+    width: calc(100% - 50px);
+    max-width: 600px;
+}
+#chatbot{
+    padding-top: 40px;
+    background-color: #ddf6c3;
+    position: relative;
+    text-align: center;
+}
+#chatbot .content{
+    margin-top: 0;
+    position: relative;
+}
+#chatbot .content img{
+    width: calc(100% - 40px);
+    max-width: 600px;
+    margin-top: 90px;
+}
+#chatbot #chatbot-t1{
+    max-width: 300px;
+    text-align: left;
+    color: #05704f;
+    margin-left: 20px;
+    position: absolute;
+}
+#chatbot #chatbot-t2{
+    max-width: 300px;
+    text-align: left;
+    color: #05704f;
+    top: 50px;
+    right: 50px;
+    position: absolute;
+}
+#chatbot #chatbot-t3{
+    max-width: 300px;
+    text-align: left;
+    color: #42a88b;
+    bottom: 0;
+    left: 10px;
+    position: absolute;
+    background-color: #cbf1a4;
+    padding: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: medium;
+}
+#info{
+    background-color: #25ce9e;
+    padding: 20px 20px 30px;
+    text-align: center;
+    font-size: x-large !important;
+}
+#info input{
+    width: calc(100% - 40px);
+    max-width: 300px;
+    padding: 10px 20px;
+    font-size: large;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: none;
+    margin: 15px 0 0 -105px;
+}
+#info button{
+    padding: 10px 20px;
+    font-size: large;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: none;
+    margin-top: 15px;
+    background-color: #4088da;
+    color: #FFFFFF;
+    position: absolute;
+}
+@media screen and (max-width: 1024px) {
+    #top-center{
+        max-width: none;
+        left: 0;
+        margin-left: 0;
+        background-position: -150px center;
+    }
+    #banner p{
+        max-width: 200px;
+        top: -20px;
+        font-size: large !important;
+    }
+    #banner .content:before {
+        width: 20px;
+        height: 20px;
+        bottom: -15px;
+        margin-left: -12px;
+    }
+    #problem .content:before {
+        width: 20px;
+        height: 20px;
+        bottom: -55px;
+        margin-left: -12px;
+    }
+    #solution .content:before{
+        width: 20px;
+        height: 20px;
+        bottom: -80px;
+        margin-left: -12px;
+    }
+    #chatbot #chatbot-t2{
+        max-width: 250px;
+        top: 10px;
+        right: 10px;
+        font-size: large !important;
+    }
+}
+@media screen and (max-width: 620px) {
+    #chatbot #chatbot-t1, #chatbot #chatbot-t2, #chatbot #chatbot-t3{
+        max-width: none;
+        width: calc(100% - 40px);
+        text-align: center;
+        position: relative;
+        top: 0;
+        right: auto;
+        left: auto;
+        margin: 0 auto;
+        font-size: large !important;
+    }
+    #chatbot #chatbot-t3{
+        width: calc(100% - 80px);
+        margin-top: 40px;
+        font-size: small !important;
+    }
+    #chatbot img{
+        margin: 20px 0 !important;
+    }
+    #chatbot #chatbot-t2 img{
+        max-width: 250px;
+    }
+    #info {
+        font-size: large !important;
+    }
+    #info input{
+        width: calc(100% - 40px);
+        max-width: 180px;
+        font-size: medium !important;
+    }
+    #info button{
+        font-size: medium !important;
+    }
+}
+@media screen and (max-width: 480px) {
+    #top{
+        height: 31px;
+    }
+    #top-center{
+        border-top-right-radius: 2em;
+        border-bottom-right-radius: 2em;
+        height: 50px;
+        background-size: 400px;
+        background-position: -140px center;
+    }
+    #top-center .ic-facebook img{
+        max-width: 30px;
+    }
+    #banner p{
+        max-width: 150px;
+        font-size: small !important;
+    }
+    #problem p{
+        max-width: 160px;
+        margin: -40px 0 0 -80px;
+        font-size: medium !important;
+    }
+    #solution p{
+        width: calc(100% - 40px);
+        font-size: large !important;
+    }
+}
