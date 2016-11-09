@@ -212,6 +212,9 @@
     text-align: center;
     font-size: x-large !important;
 }
+#info .content{
+    margin-top: 10px;
+}
 #info input{
     width: calc(100% - 40px);
     max-width: 300px;
