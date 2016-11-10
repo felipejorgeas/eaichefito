@@ -115,7 +115,7 @@
                             } else {
                                 console.log('Usuário cancelou o login.');
                             }
-                        }, {scope: 'email'});
+                        });
                     }
                 }
 
@@ -127,7 +127,7 @@
 
                 function testAPI(id) {
                     console.log('Welcome!  Fetching your information.... ');
-                    FB.api('/me', function(response) {
+                    FB.api('/me', {"fields": "id,name,email,first_name,last_name"}, function (response) {
                         console.log('Successful login for: ' + response.name);
                         console.log(response);
                     });
