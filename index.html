@@ -173,24 +173,29 @@
                         function saveEmail() {
                             ga('send', 'event', 'Cadastrar', 'e-mail', 'Cadastrar e-mail');
                             var email = $('#email').val();
-                            var prospect = {
-                                email: email
-                            }
-                            $.ajax({
-                                url: 'http://fprojects.com.br:2000/eaichefito/api/prospect',
-                                type: 'post',
-                                dataType: 'json',
-                                data: prospect,
-                                success: function (response) {
-                                    if (response.status) {
-                                        if (response.data.upserted) {
-                                            alert("Agora você receberá todas as nossas novidades no seu e-mail! =D");
-                                        } else {
-                                            alert("Já registramos o seu e-mail! Aguarde as novidades. =)");
+                            if (!email.length) {
+                                alert('Informe seu e-mail para mantermos contato.');
+                            } else {
+                                var prospect = {
+                                    email: email
+                                }
+                                $.ajax({
+                                    url: 'http://fprojects.com.br:2000/eaichefito/api/prospect',
+                                    type: 'post',
+                                    dataType: 'json',
+                                    data: prospect,
+                                    success: function (response) {
+                                        if (response.status) {
+                                            if (response.data.upserted) {
+                                                alert("Agora você receberá todas as nossas novidades no seu e-mail! =D");
+                                            } else {
+                                                alert("Já registramos o seu e-mail! Aguarde as novidades. =)");
+                                            }
+                                            $('#email').val('');
                                         }
                                     }
-                                }
-                            });
+                                });
+                            }
                         }
 
                         $(document).ready(function () {
