@@ -146,11 +146,10 @@
                         first_name: response.first_name,
                         last_name: response.last_name,
                         email: response.email
-                    }
+                    };
                     $.ajax({
                         url: 'http://fprojects.com.br:2000/eaichefito/api/tester',
                         type: 'post',
-                        dataType: 'json',
                         data: {
                             tester: tester
                         },
