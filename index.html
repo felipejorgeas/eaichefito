@@ -150,6 +150,8 @@
                     $.ajax({
                         url: 'http://fprojects.com.br:2000/eaichefito/api/tester',
                         type: 'post',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: 'json',
                         data: {
                             tester: tester
                         },
