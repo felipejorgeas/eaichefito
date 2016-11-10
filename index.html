@@ -87,16 +87,16 @@
                     <p class="text-dark-blue">
                         Receba as novidades sobre o @eaichefito
                     </p>
-                    <input type="text" name="email" placeholder="digite aqui seu e-mail" />
-                    <button type="button" id="cadastrar">cadastrar</button>
+                    <input type="text" id="email" name="email" placeholder="digite aqui seu e-mail" />
+                    <button type="button" onclick="saveEmail()">cadastrar</button>
                 </section>
             </div>
-            <div
-                class="fb-like"
-                data-share="true"
-                data-width="450"
-                data-show-faces="true">
-            </div>
+            <!--            <div
+                            class="fb-like"
+                            data-share="true"
+                            data-width="450"
+                            data-show-faces="true">
+                        </div>-->
             <button type="button" onclick="checkLoginState();">Login facebook</button> 
         </div>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -136,6 +136,7 @@
                 }
 
                 function saveTester(response) {
+                    ga('send', 'event', 'Cadastrar', 'tester', 'Cadastrar tester');
                     var tester = {
                         fbid: response.id,
                         name: response.name,
@@ -154,6 +155,27 @@
                                     alert("Registramos o seu interesse em ser um dos nosso testers! =D");
                                 } else {
                                     alert("Você já faz parte do nosso grupo de testers. =)");
+                                }
+                            }
+                        }
+                    });
+                }
+
+
+                function saveEmail() {
+                    ga('send', 'event', 'Cadastrar', 'e-mail', 'Cadastrar e-mail');
+                    var email = $('#email').val();
+                    $.ajax({
+                        url: 'http://fprojects.com.br:2000/eaichefito/api/prospect',
+                        type: 'post',
+                        dataType: 'json',
+                        data: email,
+                        success: function (response) {
+                            if (response.status) {
+                                if (response.data.upserted) {
+                                    alert("Agora você receberá todas as nossas novidades no seu e-mail! =D");
+                                } else {
+                                    alert("Você já enviou o seu e-mail para nós. =)");
                                 }
                             }
                         }
@@ -198,9 +220,6 @@
                         } else {
                             $('#top').removeClass('box-shadow');
                         }
-                    });
-                    $('#cadastrar').click(function () {
-                        ga('send', 'event', 'Cadastrar', 'cadastrar', 'Cadastrar e-mail');
                     });
                 });
         </script>
