@@ -127,10 +127,10 @@
 
                 function testAPI(id) {
                     console.log('Welcome!  Fetching your information.... ');
-                    FB.api('/' + id, function(response) {
+                    FB.api('/me', function(response) {
                         console.log('Successful login for: ' + response.name);
                         console.log(response);
-                    });
+                    }, {scope: 'email'});
                 }
                 $(document).ready(function () {
                     // Load the SDK asynchronously
