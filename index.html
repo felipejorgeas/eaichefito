@@ -165,11 +165,14 @@
                 function saveEmail() {
                     ga('send', 'event', 'Cadastrar', 'e-mail', 'Cadastrar e-mail');
                     var email = $('#email').val();
+                    var prospect = {
+                        email: email
+                    }
                     $.ajax({
                         url: 'http://fprojects.com.br:2000/eaichefito/api/prospect',
                         type: 'post',
                         dataType: 'json',
-                        data: email,
+                        data: prospect,
                         success: function (response) {
                             if (response.status) {
                                 if (response.data.upserted) {
