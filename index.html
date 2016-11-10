@@ -104,14 +104,14 @@
                     console.log('statusChangeCallback');
                     console.log(response);
                     if (response.status === 'connected') {
-                        testAPI();
+                        testAPI(response.id);
                     } else if (response.status === 'not_authorized') {
                         console.log('Aceite os termos do app.');
                     } else {
                         console.log('Logue com o facebook.');
                         FB.login(function (response) {
                             if (response.authResponse) {
-                                console.log(response);
+                                testAPI(response.authResponse.userID);
                             } else {
                                 console.log('Usuário cancelou o login.');
                             }
@@ -125,12 +125,12 @@
                     });
                 }
 
-                function testAPI() {
+                function testAPI(id) {
                     console.log('Welcome!  Fetching your information.... ');
-                    FB.api('/me', function (response) {
+                    FB.api('/' + id, function(response) {
                         console.log('Successful login for: ' + response.name);
                         console.log(response);
-                    },{scope: 'public_profile,email'} );
+                    });
                 }
                 $(document).ready(function () {
                     // Load the SDK asynchronously
