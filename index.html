@@ -109,6 +109,13 @@
                         console.log('Aceite os termos do app.');
                     } else {
                         console.log('Logue com o facebook.');
+                        FB.login(function (response) {
+                            if (response.authResponse) {
+                                console.log(response);
+                            } else {
+                                console.log('Usuário cancelou o login.');
+                            }
+                        }, {scope: 'public_profile,email'});
                     }
                 }
 
