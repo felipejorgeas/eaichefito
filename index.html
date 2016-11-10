@@ -103,14 +103,10 @@
         <script type="text/javascript">
                 // This is called with the results from from FB.getLoginStatus().
                 function statusChangeCallback(response) {
-                    console.log('statusChangeCallback');
-                    console.log(response);
                     if (response.status === 'connected') {
                         testAPI(response.authResponse.userID);
                     } else if (response.status === 'not_authorized') {
-                        console.log('Aceite os termos do app.');
                     } else {
-                        console.log('Logue com o facebook.');
                         login();
                     }
                 }
@@ -153,9 +149,12 @@
                         dataType: 'json',
                         data: tester,
                         success: function (response) {
-                            console.log(response);
                             if (response.status) {
-                                alert("Seja bem-vindo beta tester!");
+                                if (response.data.upserted) {
+                                    alert("Você é nosso mais novo tester!");
+                                } else {
+                                    alert("Você já faz parte do noso grupo de testers.");
+                                }
                             }
                         }
                     });
