@@ -128,13 +128,13 @@
                         }
 
                         function checkLoginState() {
+                            ga('send', 'event', 'Cadastrar', 'tester', 'Cadastrar tester');
                             FB.getLoginStatus(function (response) {
                                 statusChangeCallback(response);
                             });
                         }
 
                         function testAPI(id) {
-                            ga('send', 'event', 'Cadastrar', 'tester', 'Cadastrar tester');
                             FB.api('/me', {"fields": "id,name,email,first_name,last_name"}, function (response) {
                                 if (response.error) {
                                     login();
