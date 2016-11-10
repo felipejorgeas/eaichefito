@@ -134,6 +134,7 @@
                         }
 
                         function testAPI(id) {
+                            ga('send', 'event', 'Cadastrar', 'tester', 'Cadastrar tester');
                             FB.api('/me', {"fields": "id,name,email,first_name,last_name"}, function (response) {
                                 if (response.error) {
                                     login();
@@ -144,7 +145,6 @@
                         }
 
                         function saveTester(response) {
-                            ga('send', 'event', 'Cadastrar', 'tester', 'Cadastrar tester');
                             var tester = {
                                 fbid: response.id,
                                 name: response.name,
