@@ -115,7 +115,7 @@
                             } else {
                                 console.log('Usuário cancelou o login.');
                             }
-                        }, {scope: 'public_profile,email'});
+                        }, {scope: 'email'});
                     }
                 }
 
@@ -130,7 +130,7 @@
                     FB.api('/me', function(response) {
                         console.log('Successful login for: ' + response.name);
                         console.log(response);
-                    }, {scope: 'email'});
+                    });
                 }
                 $(document).ready(function () {
                     // Load the SDK asynchronously
