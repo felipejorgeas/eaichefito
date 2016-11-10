@@ -104,7 +104,7 @@
                     console.log('statusChangeCallback');
                     console.log(response);
                     if (response.status === 'connected') {
-                        testAPI(response.id);
+                        testAPI(response.authResponse.userID);
                     } else if (response.status === 'not_authorized') {
                         console.log('Aceite os termos do app.');
                     } else {
