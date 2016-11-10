@@ -91,140 +91,148 @@
                     <button type="button" onclick="saveEmail()">cadastrar</button>
                 </section>
             </div>
-            <!--            <div
-                            class="fb-like"
-                            data-share="true"
-                            data-width="450"
-                            data-show-faces="true">
-                        </div>-->
-            <button type="button" onclick="checkLoginState();">Login facebook</button> 
+            <div id="tester">
+                <section class="content">
+                    <img onclick="checkLoginState()" src="img/logo.png" />
+                    <p class="text-dark-blue">
+                        <a href="javascript:checkLoginState()">Clique aqui</a>
+                        para se tornar um beta tester do Chefito no Facebook!
+                    </p>
+                </section>
+            </div>
+            <!-- <div
+                class="fb-like"
+                data-share="true"
+                data-width="450"
+                data-show-faces="true">
+            </div>-->
         </div>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
         <script type="text/javascript">
-                // This is called with the results from from FB.getLoginStatus().
-                function statusChangeCallback(response) {
-                    if (response.status === 'connected') {
-                        testAPI(response.authResponse.userID);
-                    } else if (response.status === 'not_authorized') {
-                    } else {
-                        login();
-                    }
-                }
-
-                function login() {
-                    FB.login(function (response) {
-                        if (response.authResponse) {
-                            testAPI(response.authResponse.userID);
-                        }
-                    });
-                }
-
-                function checkLoginState() {
-                    FB.getLoginStatus(function (response) {
-                        statusChangeCallback(response);
-                    });
-                }
-
-                function testAPI(id) {
-                    FB.api('/me', {"fields": "id,name,email,first_name,last_name"}, function (response) {
-                        if (response.error) {
-                            login();
-                        } else {
-                            saveTester(response);
-                        }
-                    });
-                }
-
-                function saveTester(response) {
-                    ga('send', 'event', 'Cadastrar', 'tester', 'Cadastrar tester');
-                    var tester = {
-                        fbid: response.id,
-                        name: response.name,
-                        first_name: response.first_name,
-                        last_name: response.last_name,
-                        email: response.email
-                    };
-                    $.ajax({
-                        url: 'http://fprojects.com.br:2000/eaichefito/api/tester',
-                        type: 'post',
-                        dataType: 'json',
-                        data: tester,
-                        success: function (response) {
-                            if (response.status) {
-                                if (response.data.upserted) {
-                                    alert("Registramos o seu interesse em ser um dos nosso testers! =D");
-                                } else {
-                                    alert("Você já faz parte do nosso grupo de testers. =)");
-                                }
+                        // This is called with the results from from FB.getLoginStatus().
+                        function statusChangeCallback(response) {
+                            if (response.status === 'connected') {
+                                testAPI(response.authResponse.userID);
+                            } else if (response.status === 'not_authorized') {
+                            } else {
+                                login();
                             }
                         }
-                    });
-                }
 
-
-                function saveEmail() {
-                    ga('send', 'event', 'Cadastrar', 'e-mail', 'Cadastrar e-mail');
-                    var email = $('#email').val();
-                    var prospect = {
-                        email: email
-                    }
-                    $.ajax({
-                        url: 'http://fprojects.com.br:2000/eaichefito/api/prospect',
-                        type: 'post',
-                        dataType: 'json',
-                        data: prospect,
-                        success: function (response) {
-                            if (response.status) {
-                                if (response.data.upserted) {
-                                    alert("Agora você receberá todas as nossas novidades no seu e-mail! =D");
-                                } else {
-                                    alert("Já registramos o seu e-mail! Aguarde as novidades. =)");
+                        function login() {
+                            FB.login(function (response) {
+                                if (response.authResponse) {
+                                    testAPI(response.authResponse.userID);
                                 }
-                            }
+                            });
                         }
-                    });
-                }
 
-                $(document).ready(function () {
-                    // Load the SDK asynchronously
-                    (function (d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id))
-                            return;
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = "https://connect.facebook.net/en_US/sdk.js";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));
-                    window.fbAsyncInit = function () {
-                        FB.init({
-                            appId: '1407612189291739',
-                            xfbml: true,
-                            cookie: true,
-                            version: 'v2.8'
+                        function checkLoginState() {
+                            FB.getLoginStatus(function (response) {
+                                statusChangeCallback(response);
+                            });
+                        }
+
+                        function testAPI(id) {
+                            FB.api('/me', {"fields": "id,name,email,first_name,last_name"}, function (response) {
+                                if (response.error) {
+                                    login();
+                                } else {
+                                    saveTester(response);
+                                }
+                            });
+                        }
+
+                        function saveTester(response) {
+                            ga('send', 'event', 'Cadastrar', 'tester', 'Cadastrar tester');
+                            var tester = {
+                                fbid: response.id,
+                                name: response.name,
+                                first_name: response.first_name,
+                                last_name: response.last_name,
+                                email: response.email
+                            };
+                            $.ajax({
+                                url: 'http://fprojects.com.br:2000/eaichefito/api/tester',
+                                type: 'post',
+                                dataType: 'json',
+                                data: tester,
+                                success: function (response) {
+                                    if (response.status) {
+                                        if (response.data.upserted) {
+                                            alert("Registramos o seu interesse em ser um dos nosso testers! =D");
+                                        } else {
+                                            alert("Você já faz parte do nosso grupo de testers. =)");
+                                        }
+                                    }
+                                }
+                            });
+                        }
+
+
+                        function saveEmail() {
+                            ga('send', 'event', 'Cadastrar', 'e-mail', 'Cadastrar e-mail');
+                            var email = $('#email').val();
+                            var prospect = {
+                                email: email
+                            }
+                            $.ajax({
+                                url: 'http://fprojects.com.br:2000/eaichefito/api/prospect',
+                                type: 'post',
+                                dataType: 'json',
+                                data: prospect,
+                                success: function (response) {
+                                    if (response.status) {
+                                        if (response.data.upserted) {
+                                            alert("Agora você receberá todas as nossas novidades no seu e-mail! =D");
+                                        } else {
+                                            alert("Já registramos o seu e-mail! Aguarde as novidades. =)");
+                                        }
+                                    }
+                                }
+                            });
+                        }
+
+                        $(document).ready(function () {
+                            // Load the SDK asynchronously
+                            (function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id))
+                                    return;
+                                js = d.createElement(s);
+                                js.id = id;
+                                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));
+                            window.fbAsyncInit = function () {
+                                FB.init({
+                                    appId: '1407612189291739',
+                                    xfbml: true,
+                                    cookie: true,
+                                    version: 'v2.8'
+                                });
+                            };
+                            (function (i, s, o, g, r, a, m) {
+                                i['GoogleAnalyticsObject'] = r;
+                                i[r] = i[r] || function () {
+                                    (i[r].q = i[r].q || []).push(arguments)
+                                }, i[r].l = 1 * new Date();
+                                a = s.createElement(o),
+                                        m = s.getElementsByTagName(o)[0];
+                                a.async = 1;
+                                a.src = g;
+                                m.parentNode.insertBefore(a, m)
+                            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                            ga('create', 'UA-87097301-1', 'auto');
+                            ga('send', 'pageview');
+                            $(window).scroll(function () {
+                                if ($(document).scrollTop() > 0) {
+                                    $('#top').addClass('box-shadow');
+                                } else {
+                                    $('#top').removeClass('box-shadow');
+                                }
+                            });
                         });
-                    };
-                    (function (i, s, o, g, r, a, m) {
-                        i['GoogleAnalyticsObject'] = r;
-                        i[r] = i[r] || function () {
-                            (i[r].q = i[r].q || []).push(arguments)
-                        }, i[r].l = 1 * new Date();
-                        a = s.createElement(o),
-                                m = s.getElementsByTagName(o)[0];
-                        a.async = 1;
-                        a.src = g;
-                        m.parentNode.insertBefore(a, m)
-                    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-                    ga('create', 'UA-87097301-1', 'auto');
-                    ga('send', 'pageview');
-                    $(window).scroll(function () {
-                        if ($(document).scrollTop() > 0) {
-                            $('#top').addClass('box-shadow');
-                        } else {
-                            $('#top').removeClass('box-shadow');
-                        }
-                    });
-                });
         </script>
     </body>
 </html>

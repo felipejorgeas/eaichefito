@@ -236,6 +236,27 @@
     color: #FFFFFF;
     position: absolute;
 }
+#tester{
+    background-color: #7CE2C5;
+    padding: 20px 20px 30px;
+    text-align: center;
+    font-size: x-large !important;
+}
+#tester .content{
+    margin-top: 10px;
+}
+#tester .content img{
+    max-width: 100px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    padding: 4px;
+}
+#tester .content p a{
+    font-weight: bold;
+    color: #1c3e58;
+    padding: 10px 5px;
+    border-radius: 10px;
+}
 @media screen and (max-width: 1024px) {
     #top-center{
         max-width: none;
@@ -270,6 +291,9 @@
         max-width: 250px;
         top: 10px;
         right: 10px;
+        font-size: large !important;
+    }
+    #info p, #tester p{
         font-size: large !important;
     }
 }
