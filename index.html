@@ -119,8 +119,6 @@
                     FB.login(function (response) {
                         if (response.authResponse) {
                             testAPI(response.authResponse.userID);
-                        } else {
-                            console.log('Usuário cancelou o login.');
                         }
                     });
                 }
@@ -132,16 +130,39 @@
                 }
 
                 function testAPI(id) {
-                    console.log('Welcome!  Fetching your information.... ');
                     FB.api('/me', {"fields": "id,name,email,first_name,last_name"}, function (response) {
                         if (response.error) {
                             login();
                         } else {
-                            console.log('Successful login for: ' + response.name);
-                            console.log(response);
+                            saveTester(response);
                         }
                     });
                 }
+
+                function saveTester(reponse) {
+                    var tester = {
+                        fbid: response.id,
+                        name: response.name,
+                        first_name: response.first_name,
+                        last_name: response.last_name,
+                        email: response.email
+                    }
+                    $.ajax({
+                        url: 'http://fprojects.com.br:2000/eaichefito/api/tester',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            tester: tester
+                        },
+                        success: function (response) {
+                            console.log(response);
+                            if (response.status) {
+                                alert("Seja bem-vindo beta tester!");
+                            }
+                        }
+                    });
+                }
+
                 $(document).ready(function () {
                     // Load the SDK asynchronously
                     (function (d, s, id) {
