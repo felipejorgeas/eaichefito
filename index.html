@@ -127,6 +127,7 @@
 
                         function login() {
                             FB.login(function (response) {
+                            console.log(response);
                                 if (response.authResponse) {
                                     testAPI(response.authResponse.userID);
                                 }
