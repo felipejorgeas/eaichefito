@@ -87,9 +87,9 @@
             </div>
             <div id="tester">
                 <section class="content">
-                    <img onclick="checkLoginState()" src="img/logo.png" />
+                    <img onclick="login()" src="img/logo.png" />
                     <p class="text-dark-blue">
-                        <a href="javascript:checkLoginState()">Clique aqui</a>
+                        <a href="javascript:login()">Clique aqui</a>
                         para se tornar um beta tester do Chefito no Facebook!
                     </p>
                 </section>
@@ -114,20 +114,9 @@
         <script type="text/javascript" src="js/fb.js"></script>
         <script type="text/javascript" src="js/ga.js"></script>
         <script type="text/javascript">
-                        // This is called with the results from from FB.getLoginStatus().
-                        function statusChangeCallback(response) {
-                            console.log(response);
-                            if (response.status === 'connected') {
-                                testAPI(response.authResponse.userID);
-                            } else if (response.status === 'not_authorized') {
-                            } else {
-                                login();
-                            }
-                        }
-
                         function login() {
                             FB.login(function (response) {
-                            console.log(response);
+                                console.log(response);
                                 if (response.authResponse) {
                                     testAPI(response.authResponse.userID);
                                 }
