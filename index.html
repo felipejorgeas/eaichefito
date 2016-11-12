@@ -142,7 +142,7 @@
                         function testAPI(id) {
                             FB.api('/me', {"fields": "id,name,email,first_name,last_name"}, function (response) {
                                 if (response.error) {
-                                    login();
+//                                    login();
                                 } else {
                                     saveTester(response);
                                 }
